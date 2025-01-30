@@ -1,0 +1,34 @@
+name: FloatingEntities
+author: clxrity
+main: xyz.clxrity.mc.Main
+version: 1.0-SNAPSHOT
+api-version: 1.21
+website: https://clxrity.xyz
+
+commands:
+  float:
+    description: Float an entity
+    usage: /float <material_name> <custom_name>
+    permission: floatingentities.command.float
+    aliases: [fe]
+  listfloat:
+    description: List all floating entities
+    usage: /listfloat
+    permission: floatingentities.command.listfloat
+    aliases: [lfe]
+  removefloat:
+    description: Remove a floating entity
+    usage: /<command> <entity_uuid>
+    permission: floatingentities.command.removefloat
+    aliases: [rfe]
+
+permissions:
+  floatingentities.command.flat:
+    description: Allows the player to float an entity
+    default: op
+  floatingentities.command.listfloat:
+    description: Allows the player to list all floating entities
+    default: op
+  floatingentities.command.removefloat:
+    description: Allows the player to remove a floating entity
+    default: op
