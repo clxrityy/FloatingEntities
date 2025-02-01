@@ -8,14 +8,20 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
+import xyz.clxrity.mc.ConfigManager;
 import xyz.clxrity.mc.EntityManager;
 
 public class ListFloatEntity implements CommandExecutor {
 
+    private static final String PRIMARY_COLOR = ConfigManager.ConfigKey.PRIMARY_COLOR.getValue(String.class);
+    private static final String SECONDARY_COLOR = ConfigManager.ConfigKey.SECONDARY__COLOR.getValue(String.class);
+    private static final String WARNING_COLOR = ConfigManager.ConfigKey.WARNING_COLOR.getValue(String.class);
+
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage("§c" + "You must be a player to use this command");
+            sender.sendMessage(WARNING_COLOR + "You must be a player to use this command");
             return false;
         }
 
@@ -25,18 +31,17 @@ public class ListFloatEntity implements CommandExecutor {
         entities = EntityManager.getEntities();
 
         if (entities.isEmpty()) {
-            player.sendMessage("§c" + "No floating entities found");
+            player.sendMessage(WARNING_COLOR + "No floating entities found");
             return false;
         }
 
-        player.sendMessage("§3" + "Floating entities:");
+        player.sendMessage(PRIMARY_COLOR + "Floating entities:");
 
         for (Entity entity : entities) {
-            // player.sendMessage(Color.AQUA + entity.getCustomName() + Color.YELLOW + " - " + Color.AQUA + entity.getLocation().toString() + "\n" + Color.YELLOW + "UUID: " + entity.getUniqueId());
-            player.sendMessage("§3" + entity.getCustomName() + "§e" + " - " + "§3" + entity.getLocation().toString() + "\n" + "§e" + "UUID: " + entity.getUniqueId());
+            player.sendMessage(PRIMARY_COLOR + entity.getCustomName() + SECONDARY_COLOR + "\n- " + PRIMARY_COLOR + entity.getLocation().toString() + "\n" + SECONDARY_COLOR + "UUID: " + entity.getUniqueId());
         }
 
-        player.sendMessage("§3" + "To remove an entity, use " + "§6" + "/removefloatentity " + "§3" + "<UUID>");
+        player.sendMessage(PRIMARY_COLOR + "To remove an entity, use " + SECONDARY_COLOR + "/removefloat <name>");
 
         return true;
     }
