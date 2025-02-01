@@ -2,61 +2,78 @@ package xyz.clxrity.mc;
 
 import java.util.logging.Logger;
 
+import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import com.google.gson.JsonObject;
 
 import xyz.clxrity.mc.commands.FloatEntity;
 import xyz.clxrity.mc.commands.ListFloatEntity;
 import xyz.clxrity.mc.commands.RemoveFloatEntity;
 
-
 /*
  * floatingentities java plugin
  */
-public class Main extends JavaPlugin
-{
-  private static final Logger LOGGER=Logger.getLogger("FloatingEntities");
-
+public class Main extends JavaPlugin {
+  private static final Logger LOGGER = Logger.getLogger("FloatingEntities");
 
   @Override
-  public void onEnable()
-  {
+  public void onEnable() {
     LOGGER.info("FloatingEntities enabled");
 
-    // CONFIG
+    /**
+     * CONFIG
+     */
     
-    // COMMANDS
+     ConfigManager.setup(this);
 
-    // // /floatentity <material> <name>
-    // getCommand("float").setExecutor(new FloatEntity());
+    /**
+     * DATA
+     */
 
-    // // /listfloatentity
-    // getCommand("listfloat").setExecutor(new ListFloatEntity());
+    DataManager.setup(this);
 
-    // // /removefloatentity <UUID>
-    // getCommand("removefloat").setExecutor(new RemoveFloatEntity());
+    JsonObject data = DataManager.loadData();
 
-    if (getCommand("float") != null) {
-      getCommand("float").setExecutor(new FloatEntity());
+    if (data.isEmpty()) {
+      data.addProperty("version", 1);
+      JsonObject entities = new JsonObject();
+      data.add("entities", entities);
+      DataManager.saveData(data);
+      LOGGER.info("Data file created");
+    } else {
+      LOGGER.info("Data file loaded");
+    }
+
+    /**
+     * COMMANDS
+     */
+
+    PluginCommand floatCommand = getCommand("float");
+    PluginCommand listCommand = getCommand("listfloat");
+    PluginCommand removeCommand = getCommand("removefloat");
+
+    if (floatCommand != null) {
+      floatCommand.setExecutor(new FloatEntity());
     } else {
       LOGGER.warning("Command /float not found");
     }
 
-    if (getCommand("listfloat") != null) {
-      getCommand("listfloat").setExecutor(new ListFloatEntity());
+    if (listCommand != null) {
+      listCommand.setExecutor(new ListFloatEntity());
     } else {
       LOGGER.warning("Command /listfloat not found");
     }
 
-    if (getCommand("removefloat") != null) {
-      getCommand("removefloat").setExecutor(new RemoveFloatEntity());
+    if (removeCommand != null) {
+      removeCommand.setExecutor(new RemoveFloatEntity());
     } else {
       LOGGER.warning("Command /removefloat not found");
     }
   }
 
   @Override
-  public void onDisable()
-  {
+  public void onDisable() {
     LOGGER.info("FloatingEntities disabled");
   }
 }

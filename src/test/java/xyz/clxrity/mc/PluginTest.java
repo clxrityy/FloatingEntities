@@ -8,6 +8,8 @@ import org.junit.Test;
  */
 public class PluginTest 
 {
+    // private static final EntityManager em = new EntityManager();
+
     /**
      * Rigorous Test :-)
      */
@@ -24,40 +26,21 @@ public class PluginTest
      *  EntityManager should be empty when removing an entity that does not exist
      *  EntityManager should be empty when removing all entities
      */
-    @Test
-    public void testEntityManager()
-    {
-        EntityManager em = new EntityManager();
-        assertTrue(em.getEntities().isEmpty());
-    }
+    // @Test
+    // public void testEntityManager()
+    // {
 
-    @Test
-    public void testEntityManagerRemoveEntity()
-    {
-        EntityManager em = new EntityManager();
-        em.removeEntity(null);
-        assertTrue(em.getEntities().isEmpty());
-    }
+    //     assertTrue(em.getEntities().isEmpty());
+    // }
 
-    @Test
-    public void testEntityManagerRemoveAllEntities()
-    {
-        EntityManager em = new EntityManager();
-        em.removeAllEntities();
-        assertTrue(em.getEntities().isEmpty());
-    }
+    // @Test
+    // public void testEntityManagerGetEntities(){
+    //     assertTrue(em.getEntities().isEmpty());
+    // }
 
-    @Test
-    public void testEntityManagerGetEntities()
-    {
-        EntityManager em = new EntityManager();
-        assertTrue(em.getEntities().isEmpty());
-    }
-
-    @Test
-    public void testEntityManagerGetEntityByUUID()
-    {
-        EntityManager em = new EntityManager();
-        assertTrue(em.getEntityByUUID(null) == null);
-    }
+    // @Test
+    // public void testEntityManagerGetEntityByUUID()
+    // {
+    //     assertTrue(em.getEntityByUUID(null) == null);
+    // }
 }

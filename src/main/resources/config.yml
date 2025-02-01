@@ -1,0 +1,124 @@
+###############################################################
+# FloatingEntities Configuration File
+###############################################################
+#### https://github.com/clxrityy/FloatingEntities ####
+###############################################################
+
+
+
+
+################# FloatingEntities is a plugin that allows you to create floating entities in Minecraft.
+################# This file is in YAML format, which means that indentation is important.
+
+
+
+
+################################################
+############# ISSUES AND SUPPORT ###############
+################################################
+# If you have any issues with the plugin, please either:
+#####
+#####    First, make sure you've tried deleting the config file and restarting the server.
+#####     
+######
+# 1. Open an issue on the GitHub repository:
+#    https://github.com/clxrityy/FloatingEntities/issues/new
+# 2. Join the Discord server:
+#    <>
+# 3. Contact me via email:
+#    contact@mjanglin.com
+# If you have any suggestions or feedback, feel free to contact me via any of the methods above.
+# Thank you for using FloatingEntities!
+############################################
+
+
+
+
+############################################
+########## General Configuration ###########
+############################################
+
+#### DEFAULT Y OFFSET ####
+
+# This is the distance between the entity and the user (in block height)
+##### 0 = The entity will be placed at the user's foot level.
+##### 1 = The entity will be placed 1 block above the user's foot level.
+##### 2 = The entity will be placed 2 blocks above the user's foot level. (default)
+##### ...
+
+# default-y-offset: 2
+default-y-offset: 2
+
+#### DEFAULT X OFFSET ####
+
+# This is the distance between the entity and the user (in block width)
+##### 0 = The entity will be placed at the user's x position. (default)
+##### 1 = The entity will be placed 1 block to the right of the user.
+##### 2 = The entity will be placed 2 blocks to the right of the user.
+##### ...
+
+# default-x-offset: 0
+default-x-offset: 0
+
+#### DEFAULT Z OFFSET ####
+
+# This is the distance between the entity and the user (in block depth)
+##### 0 = The entity will be placed at the user's z position. (default)
+##### 1 = The entity will be placed 1 block in front of the user.
+##### 2 = The entity will be placed 2 blocks in front of the user.
+##### ...
+
+# default-z-offset: 0
+default-z-offset: 0
+
+#### DEFAULT BILLBOARD POSITIONING ####
+
+# This is the default positioning of the entity relative to the user.
+#### FIXED = No rotation (default)
+#### VERTICAL = Can pivot around vertical axis
+#### HORIZONTAL = Can pivot around horizontal axis
+#### CENTER = Can pivot around center point
+
+# default-billboard-positioning: FIXED
+default-billboard-positioning: FIXED
+
+#### DEFAULT ENTITY TYPE ####
+
+# This is the default entity type.
+#### ITEM_DISPLAY = Item Display (default)
+# no other possible values at this time
+
+# default-entity-type: ITEM_DISPLAY
+default-entity-type: ITEM_DISPLAY
+
+#### DEFAULT ENTITY NAME ####
+
+# This is the default entity name.
+#### Ensure it's a single word (for now).
+### Must be enclosed in double quotes.
+
+
+# default-entity-name: "Floating Entity"
+default-entity-name: "FloatingEntity"
+
+
+#### DEFAULT MATERIAL ####
+
+# This is the default entity item.
+#### You can use any item name or material name.
+#### For a list of item names, visit: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+
+# default-material: STONE
+default-material: CYAN_DYE
+
+############################################
+################# COLORS ###################
+############################################
+
+warning-color: "§c"
+error-color: "§4"
+success-color: "§a"
+primary-color: "§3"
+secondary-color: "§b"
+
+############################################
