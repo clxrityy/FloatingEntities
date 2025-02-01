@@ -23,7 +23,7 @@ commands:
     aliases: [rfe]
 
 permissions:
-  floatingentities.command.flat:
+  floatingentities.command.float:
     description: Allows the player to float an entity
     default: op
   floatingentities.command.listfloat:
