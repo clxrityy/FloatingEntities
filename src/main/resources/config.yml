@@ -1,16 +1,15 @@
 ###############################################################
-# FloatingEntities Configuration File
+# ██▓▒­░⡷⠂𝙵𝚕𝚘𝚊𝚝𝚒𝚗𝚐𝙴𝚗𝚝𝚒𝚝𝚒𝚎𝚜⠐⢾░▒▓██
+# A plugin that allows you to create floating entities in Minecraft.
 ###############################################################
 #### https://github.com/clxrityy/FloatingEntities ####
 ###############################################################
+## This file is in YAML format, which means that indentation is important.
+## Make sure to use spaces instead of tabs.
+###############################################################
 
 
-
-
-################# FloatingEntities is a plugin that allows you to create floating entities in Minecraft.
-################# This file is in YAML format, which means that indentation is important.
-
-
+# ██▓▒­░⡷⠂⢾░▒▓██
 
 
 ################################################
@@ -32,6 +31,7 @@
 ############################################
 
 
+# ██▓▒­░⡷⠂⢾░▒▓██
 
 
 ############################################
@@ -121,4 +121,5 @@ success-color: "§a"
 primary-color: "§3"
 secondary-color: "§b"
 
-############################################
+# ██▓▒­░⡷⠂⢾░▒▓██
+###########################################

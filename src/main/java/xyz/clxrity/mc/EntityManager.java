@@ -83,22 +83,6 @@ public class EntityManager {
         saveEntityData();
     }
 
-    // public static Entity getEntityByName(String name) {
-
-    // Entity ent = null;
-
-    // for (JsonElement entity : entityData) {
-    // if (entity.getAsJsonObject().get("name").getAsString().equals(name)) {
-    // UUID uuid =
-    // UUID.fromString(entity.getAsJsonObject().get("uuid").getAsString());
-    // ent = getEntityByUUID(uuid);
-    // break;
-    // }
-    // }
-
-    // return ent;
-    // }
-
     public static Entity getEntityByName(String name) {
         for (JsonElement entity : entityData) {
             JsonObject obj = entity.getAsJsonObject();
@@ -110,47 +94,6 @@ public class EntityManager {
         return null;
     }
 
-    // public static void addEntity(Entity entity, Player player) {
-    // entities.add(entity);
-
-    // if (entityData.contains(entity)) {
-    // entityData.getAsJsonObject(entity.getUniqueId().toString()).addProperty("owner",
-    // player.getUniqueId().toString());
-    // } else {
-    // JsonObject entityObject = new JsonObject();
-    // entityObject.addProperty("owner", player.getUniqueId().toString());
-    // entityData.add(entity.getUniqueId().toString(), entityObject);
-    // }
-
-    // saveEntityData();
-    // }
-
-    // public static void removeEntity(Entity entity) {
-    // entities.remove(entity);
-
-    // entityData.remove(entity.getUniqueId().toString());
-
-    // saveEntityData();
-    // }
-
-    // public static List<Entity> getEntities() {
-    // return entities;
-    // }
-
-    // public static void removeAllEntities() {
-    // for (Entity entity : entities) {
-    // if (!entity.isDead()) {
-    // entity.remove();
-    // }
-    // }
-
-    // entities.clear();
-
-    // entityData.entrySet().clear();
-
-    // saveEntityData();
-    // }
-
     public static Entity getEntityByUUID(UUID uuid) {
         for (Entity entity : entities) {
             if (entity.getUniqueId().equals(uuid)) {
@@ -159,5 +102,15 @@ public class EntityManager {
         }
 
         return null;
+    }
+
+    public static boolean isOwnEntity(Entity entity, Player player) {
+        for (JsonElement entityElement : entityData) {
+            JsonObject obj = entityElement.getAsJsonObject();
+            if (entity.getUniqueId().toString().equals(obj.get("uuid").getAsString())) {
+                return player.getUniqueId().toString().equals(obj.get("owner").getAsString());
+            }
+        }
+        return false;
     }
 }
