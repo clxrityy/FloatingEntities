@@ -1,26 +1,31 @@
-# Changelogs <img src="../icon.webp" width="30" alt="FloatingEntities" />
+# FloatingEntities
+
+- [Changelogs](#changelogs)
+- [Overview](#overview)
+- [Upcoming releases](#upcoming-releases)
+
+
+## Changelogs <img src="../icon.webp" width="30" alt="FloatingEntities" />
 
 - [1.x](#1x)
     - [1.0-SNAPSHOT](#10-snapshot)
     - [1.0.0](#100)
+    - [1.0.1](#101)
 
-### Necessary in upcoming releases:
+## Overview
 
-- [x] A better uuid system for removing floating entitites
-    - ~~You currently have to do `/removefloat 1c3f20d7-acad-4761-a703-a2bfa8aec1e8`~~
-    - ~~I wish to make this ID shorter or a way to customize the ID.~~
-    - **You can now do `/removefloat <custom_name>`**
-        - Derived from `/float <entity_name> <custom_name>`
-- [ ] **Configuration system** - Ability to configure changes in `config.yml`
-    - [x] `default-y-offest` - The distance between the entity and user (in block height)
-        - **Default**: `2`
-    - [x] `default-x-offset` - The distance between the entity and user (in block width)
-        - **Default**: `0`
-    - [x] `default-z-offset` - The distance between the entity and user (in block depth)
-        - **Default**: `0`
-    - [x] Colors of all messages
-    - [ ] Permissions for removing only your own and/or all floating entities (`*`)
+| Release | Feature(s) | Supported Version(s) |
+| :-- | :---- | :--- |
+| [1.0-SNAPSHOT](#10-snapshot-beta) | <h6>Commands:</h6><ul><li>`/foat`</li><li>`/listfloat`</li><li>`/removefloat`</li></ul> | <li>`1.21.4`</li> |
+| [1.0.0](#100) | <li>Data manager & file</li><li>Config manager & file</li> | <li>`1.21.4`</li> |
+| [1.0.1](#101) | <li>Permissions</li> | <li>`1.21.4`</li> |
+
+
+
+## Ucoming releases:
+
 - [ ] Ability to add more than just materials, like actual mobs, etc.
+- [ ] Add support for earlier versions (at least 1.8+ ideal)
 
 ---
 
@@ -28,7 +33,7 @@
 
 ## 1.0-SNAPSHOT [BETA]
 
-##### <img src="../icon.webp" width="18" height="14" /> [Download](./downloads/1.0-SNAPSHOT/FloatingEntities-1.0-SNAPSHOT.jar)
+[<kbd><img src="../icon.webp" width="18" height="14" /> Download </kbd>](./downloads/v1/1.0-SNAPSHOT/FloatingEntities-1.0-SNAPSHOT.jar)
 
 - Supports `1.21.4`
     - Supports [paper](https://papermc.io/)
@@ -41,7 +46,7 @@
 
 ## 1.0.0
 
-##### <img src="../icon.webp" width="18" height="14" /> [Download](./downloads/1.0.0/FloatingEntities-1.0.0.jar)
+[<kbd><img src="../icon.webp" width="18" height="14" /> Download </kbd>](./downloads/v1/1.0.0/FloatingEntities-1.0.0.jar)
 
 - Fixed bug where the name of the floating entity would by default be `CYAN_DYE` if the user hadn't set it.
     - Defined the name after the material is defined.
@@ -76,3 +81,22 @@
     - A class to manage the config file (`config.yml`)
     - This will auto generate the file if it does not exist.
     - Also set all config default values if they are non existent.
+
+## 1.0.1
+
+[<kbd><img src="../icon.webp" width="18" height="14" /> Download </kbd>](./downloads/v1/1.0.1/FloatingEntities-1.0.1.jar)
+
+- Added functionality for permissions:
+    - #### `/float`
+        - `floatingentities.command.float`
+    - #### `/listfloat`
+        - `floatingentities.command.listfloat`
+    - #### `/removefloat`
+        - `floatingentities.command.removefloat.all`
+            - `/removefloat *`
+            - Remove all floating entities
+            - **MUST ALSO HAVE** `floatingentities.command.removefloat.others`
+                - This will be changed in future releases to allow for removing only your own floating entities.
+        - `floatingentities.command.removefloat.others`
+            - Remove floating entities created by other players
+> All permissions are `op` by default

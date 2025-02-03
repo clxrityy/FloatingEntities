@@ -13,6 +13,7 @@ import org.bukkit.inventory.ItemStack;
 
 import xyz.clxrity.mc.ConfigManager;
 import xyz.clxrity.mc.EntityManager;
+import xyz.clxrity.mc.util.Permissions;
 
 public class FloatEntity implements CommandExecutor {
 
@@ -30,6 +31,8 @@ public class FloatEntity implements CommandExecutor {
     private static final String ERROR_COLOR = ConfigManager.ConfigKey.ERROR_COLOR.getValue(String.class);
     private static final String SUCCESS_COLOR = ConfigManager.ConfigKey.SUCCESS_COLOR.getValue(String.class);
 
+    private static final Permissions permissions = new Permissions();
+
     @Override
     public boolean onCommand(CommandSender sender, org.bukkit.command.Command command, String label, String[] args) {
 
@@ -42,6 +45,11 @@ public class FloatEntity implements CommandExecutor {
         }
 
         Player player = (Player) sender;
+
+        if (!permissions.hasPermission(player, "floatingentities.command.float")) {
+            player.sendMessage(WARNING_COLOR + "You do not have permission to use this command");
+            return false;
+        }
 
         Material material = Material.getMaterial(DEFAULT_MATERIAL);
 

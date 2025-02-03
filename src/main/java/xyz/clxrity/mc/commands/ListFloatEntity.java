@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 
 import xyz.clxrity.mc.ConfigManager;
 import xyz.clxrity.mc.EntityManager;
+import xyz.clxrity.mc.util.Permissions;
 
 public class ListFloatEntity implements CommandExecutor {
 
@@ -17,6 +18,7 @@ public class ListFloatEntity implements CommandExecutor {
     private static final String SECONDARY_COLOR = ConfigManager.ConfigKey.SECONDARY__COLOR.getValue(String.class);
     private static final String WARNING_COLOR = ConfigManager.ConfigKey.WARNING_COLOR.getValue(String.class);
 
+    private static final Permissions permissions = new Permissions();
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -26,6 +28,12 @@ public class ListFloatEntity implements CommandExecutor {
         }
 
         Player player = (Player) sender;
+
+        // CHECK PERMISSION
+        if (!permissions.hasPermission(player, "floatingentities.command.listfloat")) {
+            player.sendMessage(WARNING_COLOR + "You do not have permission to use this command");
+            return false;
+        }
 
         List<Entity> entities;
         entities = EntityManager.getEntities();

@@ -1,7 +1,7 @@
 name: FloatingEntities
 author: clxrity
 main: xyz.clxrity.mc.Main
-version: 1.0.0
+version: 1.0.1
 api-version: 1.21
 website: https://clxrity.xyz
 
@@ -29,6 +29,15 @@ permissions:
   floatingentities.command.listfloat:
     description: Allows the player to list all floating entities
     default: op
+  # floatingentities.command.removefloat:
+  #   description: Allows the player to remove a floating entity
+  #   default: op
+  floatingentities.command.removefloat.all:
+    description: Allows the player to remove all floating entities
+    default: op
+  floatingentities.command.removefloat.others:
+    description: Allows the player to remove other players' floating entities
+    default: op
   floatingentities.command.removefloat:
-    description: Allows the player to remove a floating entity
+    description: Allows the player to remove their own floating entities
     default: op
